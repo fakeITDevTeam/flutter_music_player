@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/common/color_extension.dart';
 
-class RecommendedCell extends StatelessWidget {
+class PlaylistCell extends StatelessWidget {
   final Map mObj;
-  const RecommendedCell({super.key, required this.mObj});
+  const PlaylistCell({super.key, required this.mObj});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 230,      
+      width: 110,      
       margin: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -18,7 +18,7 @@ class RecommendedCell extends StatelessWidget {
             child: Image.asset(
               mObj["image"], 
               width: double.maxFinite, 
-              height: 120, 
+              height: 110, 
               fit: BoxFit.cover,
             ),
           ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../common/color_extension.dart';
-
+import 'package:music_player/common/color_extension.dart';
 
 class TitleSection extends StatelessWidget {
   final String title;

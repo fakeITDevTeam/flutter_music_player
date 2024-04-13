@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_player/common/color_extension.dart';
+import 'package:music_player/common_widget/playlist_cell.dart';
 import 'package:music_player/common_widget/recommended_cell.dart';
+import 'package:music_player/common_widget/songs_row.dart';
 import 'package:music_player/common_widget/title_section.dart';
+import 'package:music_player/common_widget/view_all_section.dart';
 import 'package:music_player/view_model/home_view_model.dart';
 
 class HomeView extends StatefulWidget {
@@ -76,7 +79,7 @@ class _HomeViewState extends State<HomeView> {
           children: [
             const TitleSection(title: "Hot Recommended"),
             SizedBox(
-              height: 195,
+              height: 190,
               child: ListView.builder(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 10, 
@@ -95,6 +98,53 @@ class _HomeViewState extends State<HomeView> {
               color: Colors.white.withOpacity(0.07),
               indent: 20,
               endIndent: 20,
+            ),
+            ViewAllSection(
+              title: "Playlist", 
+              onPressed: (){},
+            ),
+            SizedBox(
+              height: 180,
+              child: ListView.builder(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10, 
+                  vertical: 0,
+                ),
+                scrollDirection: Axis.horizontal,
+                itemCount: homeVM.playListArr.length,
+                itemBuilder: (context, index) {
+                  var mObj = homeVM.playListArr[index];
+                  return PlaylistCell(mObj: mObj);
+                }
+              ),
+            ),
+            Divider(
+              color: Colors.white.withOpacity(0.07),
+              indent: 20,
+              endIndent: 20,
+            ),
+
+            ViewAllSection(
+              title: "Recently Played", 
+              onPressed: (){},
+            ),
+
+            ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10,                
+              ),
+              // scrollDirection: Axis.horizontal,
+              itemCount: homeVM.recentlyPlayedArr.length,
+              itemBuilder: (context, index) {
+                var sObj = homeVM.recentlyPlayedArr[index];
+                return SongsRow(
+                  sObj: sObj, 
+                  onPressed: (){}, 
+                  onPressedPlay: (){},
+                );
+              }
             ),
           ],
         ),
