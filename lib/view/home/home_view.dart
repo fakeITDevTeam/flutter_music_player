@@ -7,6 +7,7 @@ import 'package:music_player/common_widget/songs_row.dart';
 import 'package:music_player/common_widget/title_section.dart';
 import 'package:music_player/common_widget/view_all_section.dart';
 import 'package:music_player/view_model/home_view_model.dart';
+import 'package:music_player/view_model/splash_view_model.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -16,8 +17,8 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-
   final homeVM = Get.put(HomeViewModel());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +26,9 @@ class _HomeViewState extends State<HomeView> {
         backgroundColor: TColor.bg,
         elevation: 0,
         leading: IconButton(
-          onPressed: (){}, 
+          onPressed: (){
+            Get.find<SplashViewModel>().openDrawer();
+          }, 
           icon: Image.asset(
             "assets/img/menu.png", 
             width: 25, 
