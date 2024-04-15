@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:music_player/common/color_extension.dart';
-import 'package:music_player/view/home/home_view.dart';
-import 'package:music_player/view_model/splash_view_model.dart';
+
+import '../../common/color_extension.dart';
+import '../../view_model/splash_view_model.dart';
+import '../home/home_view.dart';
+import '../songs/songs_view.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});
@@ -263,7 +265,7 @@ class _MainTabViewState extends State<MainTabView> with SingleTickerProviderStat
           // Container(child: Center(child: Text("Songs")),),
           // Container(child: Center(child: Text("Settings")),),
           HomeView(),
-          Center(child: Text("Songs")),
+          SongsView(),
           Center(child: Text("Settings")),          
         ],
       ),

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:music_player/view_model/splash_view_model.dart';
-
+import '../view_model/splash_view_model.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

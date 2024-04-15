@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:music_player/common/color_extension.dart';
-import 'package:music_player/common_widget/playlist_cell.dart';
-import 'package:music_player/common_widget/recommended_cell.dart';
-import 'package:music_player/common_widget/songs_row.dart';
-import 'package:music_player/common_widget/title_section.dart';
-import 'package:music_player/common_widget/view_all_section.dart';
-import 'package:music_player/view_model/home_view_model.dart';
-import 'package:music_player/view_model/splash_view_model.dart';
+
+import '../../common/color_extension.dart';
+import '../../common_widget/playlist_cell.dart';
+import '../../common_widget/recommended_cell.dart';
+import '../../common_widget/songs_row.dart';
+import '../../common_widget/title_section.dart';
+import '../../common_widget/view_all_section.dart';
+import '../../view_model/home_view_model.dart';
+import '../../view_model/splash_view_model.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
