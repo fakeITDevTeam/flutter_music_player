@@ -72,10 +72,12 @@ class _SongsViewState extends State<SongsView> with SingleTickerProviderStateMix
       body: Column(
         children: [
           SizedBox(
-            height: kToolbarHeight,
+            height: kToolbarHeight - 15,
             child: TabBar(
               controller: controller,
               indicatorColor: TColor.focus,
+              indicatorPadding: const EdgeInsets.symmetric(horizontal: 20),
+              isScrollable: true,
               labelStyle: TextStyle(
                 color: TColor.primary,
                 fontSize: 15,

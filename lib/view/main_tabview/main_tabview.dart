@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:music_player/view/settings/settings_view.dart';
 
 import '../../common/color_extension.dart';
+import '../../common_widget/icon_text_row.dart';
 import '../../view_model/splash_view_model.dart';
 import '../home/home_view.dart';
 import '../songs/songs_view.dart';
@@ -108,165 +110,64 @@ class _MainTabViewState extends State<MainTabView> with SingleTickerProviderStat
                 
               ),
             ),
-            ListTile(
-              leading: Image.asset(
-                "assets/img/m_theme.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Themes", 
-                style: TextStyle(
-                  color: TColor.primaryText.withOpacity(0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: (){
+            IconTextRow(
+              title: "Themes", 
+              icon: "assets/img/m_theme.png", 
+              onTap: () {
                 splashVM.closeDrawer();
-              },
+              }
             ),
-            Divider(color: TColor.primaryText.withOpacity(0.07), indent: 70,),
-
-            ListTile(
-              leading: Image.asset(
-                "assets/img/m_ring_cut.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Ringtone Cutter", 
-                style: TextStyle(
-                  color: TColor.primaryText.withOpacity(0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: (){
+            IconTextRow(
+              title: "Ringtone Cutter", 
+              icon: "assets/img/m_ring_cut.png", 
+              onTap: () {
                 splashVM.closeDrawer();
-              },
+              }
             ),
-            Divider(color: TColor.primaryText.withOpacity(0.07), indent: 70,),
-
-            ListTile(
-              leading: Image.asset(
-                "assets/img/m_sleep_timer.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Sleep Timer", 
-                style: TextStyle(
-                  color: TColor.primaryText.withOpacity(0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: (){
+            IconTextRow(
+              title: "Sleep Timer", 
+              icon: "assets/img/m_sleep_timer.png", 
+              onTap: () {
                 splashVM.closeDrawer();
-              },
+              }
             ),
-            Divider(color: TColor.primaryText.withOpacity(0.07), indent: 70,),
-
-            ListTile(
-              leading: Image.asset(
-                "assets/img/m_eq.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Equalizer", 
-                style: TextStyle(
-                  color: TColor.primaryText.withOpacity(0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: (){
+            IconTextRow(
+              title: "Equalizer", 
+              icon: "assets/img/m_eq.png", 
+              onTap: () {
                 splashVM.closeDrawer();
-              },
+              }
             ),
-            Divider(color: TColor.primaryText.withOpacity(0.07), indent: 70,),
-
-            ListTile(
-              leading: Image.asset(
-                "assets/img/m_driver_mode.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Driving Mode", 
-                style: TextStyle(
-                  color: TColor.primaryText.withOpacity(0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: (){
+            IconTextRow(
+              title: "Driving Mode", 
+              icon: "assets/img/m_driver_mode.png", 
+              onTap: () {
                 splashVM.closeDrawer();
-              },
+              }
             ),
-            Divider(color: TColor.primaryText.withOpacity(0.07), indent: 70,),
-
-            ListTile(
-              // contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              leading: Image.asset(
-                "assets/img/m_hidden_folder.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Hidden Folders", 
-                style: TextStyle(
-                  color: TColor.primaryText.withOpacity(0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: (){
+            IconTextRow(
+              title: "Hidden Folders", 
+              icon: "assets/img/m_hidden_folder.png", 
+              onTap: () {
                 splashVM.closeDrawer();
-              },
+              }
             ),
-            Divider(color: TColor.primaryText.withOpacity(0.07), indent: 70,),
-
-            ListTile(
-              leading: Image.asset(
-                "assets/img/m_scan_media.png",
-                width: 25,
-                height: 25,
-                fit: BoxFit.contain,
-              ),
-              title: Text(
-                "Scan Media", 
-                style: TextStyle(
-                  color: TColor.primaryText.withOpacity(0.9),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              onTap: (){
+            IconTextRow(
+              title: "Scan Media", 
+              icon: "assets/img/m_scan_media.png", 
+              onTap: () {
                 splashVM.closeDrawer();
-              },
-            ),
-            Divider(color: TColor.primaryText.withOpacity(0.07), indent: 70,),
+              }
+            ),            
           ],
         ),
       ),
       body: TabBarView(
         controller: controller,
-        children: const [
-          // Container(child: Center(child: Text("Home")),),
-          // Container(child: Center(child: Text("Songs")),),
-          // Container(child: Center(child: Text("Settings")),),
+        children: const [          
           HomeView(),
           SongsView(),
-          Center(child: Text("Settings")),          
+          SettingsView(),          
         ],
       ),
       bottomNavigationBar: Container(
