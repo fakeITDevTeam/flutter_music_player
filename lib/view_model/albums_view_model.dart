@@ -48,22 +48,6 @@ class AlbumViewModel extends GetxController {
       "duration": "3:56",
       "name": "Remember the Time",
       "artists": "Michael Jackson"
-    },
-    {"duration": "3:56", "name": "Billie Jean", "artists": "Michael Jackson"},
-    {"duration": "3:56", "name": "Earth Song", "artists": "Michael Jackson"},
-    {"duration": "3:56", "name": "Mirror", "artists": "Justin Timberlake"},
-    {
-      "duration": "3:56",
-      "name": "Remember the Time",
-      "artists": "Michael Jackson"
-    },
-    {"duration": "3:56", "name": "Billie Jean", "artists": "Michael Jackson"},
-    {"duration": "3:56", "name": "Earth Song", "artists": "Michael Jackson"},
-    {"duration": "3:56", "name": "Mirror", "artists": "Justin Timberlake"},
-    {
-      "duration": "3:56",
-      "name": "Remember the Time",
-      "artists": "Michael Jackson"
-    }
+    },   
   ].obs;
 }
