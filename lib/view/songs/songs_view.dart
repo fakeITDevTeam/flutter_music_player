@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/view/songs/albums_view.dart';
 import 'package:music_player/view/songs/all_songs_view.dart';
+import 'package:music_player/view/songs/artists_view.dart';
 import 'package:music_player/view/songs/playlists_view.dart';
 
 import '../../common/color_extension.dart';
@@ -117,7 +118,7 @@ class _SongsViewState extends State<SongsView> with SingleTickerProviderStateMix
                 AllSongsView(),
                 PlaylistsView(),
                 AlbumsView(),
-                Center(child: Text("Artists"),),
+                ArtistsView(),
                 Center(child: Text("Genres"),),
               ],
             ),

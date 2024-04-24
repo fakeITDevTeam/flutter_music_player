@@ -34,7 +34,7 @@ class ArtistsViewModel extends GetxController {
     },
     {
       "image": "assets/img/ar_6.png",
-      "name": "Yani",
+      "name": "Yanni",
       "albums": "1 albums",
       "songs": "13 Songs"
     }

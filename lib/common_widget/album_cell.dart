@@ -141,14 +141,6 @@ class AlbumCell extends StatelessWidget {
                     }
                   ),
                 ),
-                // InkWell(
-                //   onTap: () {},
-                //   child: Image.asset(
-                //     "assets/img/more_btn.png",
-                //     width: 12,
-                //     height: 12,
-                //   ),
-                // ),
               ],
             ),
         
