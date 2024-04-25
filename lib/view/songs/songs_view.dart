@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:music_player/view/songs/albums_view.dart';
 import 'package:music_player/view/songs/all_songs_view.dart';
 import 'package:music_player/view/songs/artists_view.dart';
+import 'package:music_player/view/songs/genres_view.dart';
 import 'package:music_player/view/songs/playlists_view.dart';
 
 import '../../common/color_extension.dart';
@@ -82,8 +83,9 @@ class _SongsViewState extends State<SongsView> with SingleTickerProviderStateMix
               indicatorColor: TColor.focus,
               indicatorPadding: const EdgeInsets.symmetric(horizontal: 20),
               isScrollable: true,
+              labelColor: TColor.focus,
               labelStyle: TextStyle(
-                color: TColor.primary,
+                color: TColor.focus,
                 fontSize: 15,
                 fontWeight: FontWeight.w600,
               ),
@@ -119,7 +121,7 @@ class _SongsViewState extends State<SongsView> with SingleTickerProviderStateMix
                 PlaylistsView(),
                 AlbumsView(),
                 ArtistsView(),
-                Center(child: Text("Genres"),),
+                GenresView(),
               ],
             ),
           ),
