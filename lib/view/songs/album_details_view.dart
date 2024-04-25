@@ -1,13 +1,7 @@
-import 'dart:ffi';
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:music_player/common_widget/album_songs_row.dart';
-import 'package:music_player/view/songs/albums_view.dart';
-import 'package:music_player/view/songs/all_songs_view.dart';
-import 'package:music_player/view/songs/playlists_view.dart';
 import 'package:music_player/view_model/albums_view_model.dart';
 
 import '../../common/color_extension.dart';

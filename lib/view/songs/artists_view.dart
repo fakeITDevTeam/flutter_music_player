@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_player/common_widget/artists_row.dart';
+import 'package:music_player/view/songs/artist_details_view.dart';
 import 'package:music_player/view_model/artists_view_model.dart';
 
 class ArtistsView extends StatefulWidget {
@@ -26,7 +27,9 @@ class _ArtistsViewState extends State<ArtistsView> {
 
             return ArtistsRow(
               aObj: aObj, 
-              onPressed: (){}, 
+              onPressed: (){
+                Get.to(() => const ArtistDetailsView());
+              }, 
               onPressedMenuSelect: (selectIndex){}
             );
           }
