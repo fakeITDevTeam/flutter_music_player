@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:music_player/common_widget/player_bottom_button.dart';
-import 'package:music_player/view/main_player/play_playlist_view.dart';
+import 'package:music_player/common_widget/all_songs_row.dart';
+import 'package:music_player/view_model/all_songs_view_model.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 import '../../common/color_extension.dart';
 
-class MainPlayerView extends StatefulWidget {
-  const MainPlayerView({super.key});
+class PlayPlaylistView extends StatefulWidget {
+  const PlayPlaylistView({super.key});
 
   @override
-  State<MainPlayerView> createState() => _MainPlayerViewState();
+  State<PlayPlaylistView> createState() => _PlayPlaylistViewState();
 }
 
-class _MainPlayerViewState extends State<MainPlayerView> {
+class _PlayPlaylistViewState extends State<PlayPlaylistView> {
+  final allVM = Get.put(AllSongsViewModel());
 
   final customWidth = CustomSliderWidths(
-    trackWidth: 4, progressBarWidth: 6, shadowWidth: 8,
+    trackWidth: 2, progressBarWidth: 4, shadowWidth: 6,
   );
   
   final customColors = CustomSliderColors(
@@ -65,7 +66,7 @@ class _MainPlayerViewState extends State<MainPlayerView> {
           ),
         ),
         title: Text(
-          "Now Playing",
+          "Playlist",
           style: TextStyle(
             color: TColor.primaryText80,
             fontSize: 17,
@@ -162,65 +163,92 @@ class _MainPlayerViewState extends State<MainPlayerView> {
               ];
             }
           ),
-                
-
-          
         ],
       ),
+
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 20,),
-            Stack(
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(media.width * 0.7),
-                  child: Image.asset(
-                    "assets/img/player_image.png",
-                    width: media.width * 0.6,
-                    height: media.width * 0.6,
-                    fit: BoxFit.cover,
+                SizedBox(
+                  width: 50, 
+                  height: 50,
+                  child: IconButton(
+                    onPressed: (){}, 
+                    icon: Image.asset(
+                      "assets/img/previous_song.png",                      
+                    ),
                   ),
                 ),
+                
+                const SizedBox(width: 15,),
+                Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(media.width * 0.4),
+                      child: Image.asset(
+                        "assets/img/player_image.png",
+                        width: media.width * 0.4,
+                        height: media.width * 0.4,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
 
+                    SizedBox(
+                      width: media.width * 0.4,
+                      height: media.width * 0.4,
+                      child: SleekCircularSlider(
+                        appearance: CircularSliderAppearance(
+                          customWidths: customWidth,
+                          customColors: customColors,
+                          infoProperties: info,
+                          startAngle: 270,
+                          angleRange: 360,
+                          size: 350.0),
+                      
+                        min: 0,
+                        max: 100,
+                        initialValue: 60,
+                        onChange: (double value) {
+                          // callback providing a value while its being changed (with a pan gesture)
+                        },
+                        onChangeStart: (double startValue) {
+                          // callback providing a starting value (when a pan gesture starts)
+                        },
+                        onChangeEnd: (double endValue) {
+                          // ucallback providing an ending value (when a pan gesture ends)
+                        },
+                        // innerWidget: (double value) {
+                        //   // use your custom widget inside the slider (gets a slider value from the callback)
+                        // },
+                      ),
+                    ),
+                  ],
+                ),
+                
+                const SizedBox(width: 15,),
                 SizedBox(
-                  width: media.width * 0.61,
-                  height: media.width * 0.61,
-                  child: SleekCircularSlider(
-                    appearance: CircularSliderAppearance(
-                      customWidths: customWidth,
-                      customColors: customColors,
-                      infoProperties: info,
-                      startAngle: 270,
-                      angleRange: 360,
-                      size: 350.0),
-                  
-                    min: 0,
-                    max: 100,
-                    initialValue: 60,
-                    onChange: (double value) {
-                      // callback providing a value while its being changed (with a pan gesture)
-                    },
-                    onChangeStart: (double startValue) {
-                      // callback providing a starting value (when a pan gesture starts)
-                    },
-                    onChangeEnd: (double endValue) {
-                      // ucallback providing an ending value (when a pan gesture ends)
-                    },
-                    // innerWidget: (double value) {
-                    //   // use your custom widget inside the slider (gets a slider value from the callback)
-                    // },
+                  width: 50, 
+                  height: 50,
+                  child: IconButton(
+                    onPressed: (){}, 
+                    icon: Image.asset(
+                      "assets/img/next_song.png",                      
+                    ),
                   ),
                 ),
               ],
             ),
-            
             const SizedBox(height: 10,),
             Text(
               "3:15|4:26",
               style: TextStyle(
-                color: TColor.secondaryText,
+                color: TColor.primaryText80,
                 fontSize: 12,
                 fontWeight: FontWeight.w600
               ),
@@ -239,95 +267,30 @@ class _MainPlayerViewState extends State<MainPlayerView> {
             Text(
               "Michael Jackson | Album - Dangerous",
               style: TextStyle(
-                color: TColor.secondaryText,
+                color: TColor.primaryText80,
                 fontSize: 12,
                 // fontWeight: FontWeight.w600
               ),
             ),
-            const SizedBox(height: 20,),
-            Image.asset(
-              "assets/img/eq_display.png", 
-              height: 60, 
-              fit: BoxFit.fitHeight,
-            ),
-            const Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Divider(
-                color: Colors.white12,
-                height: 1,
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 50, 
-                  height: 50,
-                  child: IconButton(
-                    onPressed: (){}, 
-                    icon: Image.asset(
-                      "assets/img/previous_song.png",                      
-                    ),
-                  ),
-                ),
-                
-                const SizedBox(width: 15,),
-                SizedBox(
-                  width: 80, 
-                  height: 80,
-                  child: IconButton(
-                    onPressed: (){}, 
-                    icon: Image.asset(
-                      "assets/img/play.png",                      
-                    ),
-                  ),
-                ),
-                
-                const SizedBox(width: 15,),
-                SizedBox(
-                  width: 50, 
-                  height: 50,
-                  child: IconButton(
-                    onPressed: (){}, 
-                    icon: Image.asset(
-                      "assets/img/next_song.png",                      
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                PlayerBottomButton(
-                  title: "Playlist", 
-                  icon: "assets/img/playlist.png", 
-                  onPressed: (){
-                    Get.to(() => const PlayPlaylistView());
+
+            Obx(() => ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              padding: const EdgeInsets.all(20),
+              itemCount: allVM.allList.length,
+              itemBuilder: (context, index) {
+                var sObj = allVM.allList[index];
+
+                return AllSongsRow(
+                  sObj: sObj, 
+                  onPressed: (){}, 
+                  onPressedPlay: (){
+                    
                   }
-                ),
-                PlayerBottomButton(
-                  title: "Shuffle", 
-                  icon: "assets/img/shuffle.png", 
-                  onPressed: (){}
-                ),
-                PlayerBottomButton(
-                  title: "Repeat", 
-                  icon: "assets/img/repeat.png", 
-                  onPressed: (){}
-                ),
-                PlayerBottomButton(
-                  title: "EQ", 
-                  icon: "assets/img/eq.png", 
-                  onPressed: (){}
-                ),
-                PlayerBottomButton(
-                  title: "Favorite", 
-                  icon: "assets/img/fav.png", 
-                  onPressed: (){}
-                ),
-              ],
-            ),
+                );
+              }
+            )),
+
           ],
         ),
       ),
