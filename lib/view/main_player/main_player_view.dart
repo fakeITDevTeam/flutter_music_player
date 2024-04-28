@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_player/common_widget/player_bottom_button.dart';
+import 'package:music_player/view/main_player/driver_mode_view.dart';
 import 'package:music_player/view/main_player/play_playlist_view.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
@@ -84,7 +85,11 @@ class _MainPlayerViewState extends State<MainPlayerView> {
               color: Colors.white,
             ),
             padding: EdgeInsets.zero,
-            onSelected: (selectIndex){},
+            onSelected: (selectIndex){
+              if (selectIndex == 9) {
+                Get.to(() => const DriverModeView());
+              }
+            },
             itemBuilder: (context) {
               return [
                 const PopupMenuItem(
@@ -147,7 +152,7 @@ class _MainPlayerViewState extends State<MainPlayerView> {
                   value: 8,
                   height: 30,
                   child: Text(
-                    "Driver mode",
+                    "Equalizer",
                     style: TextStyle(fontSize: 12),
                   ),
                 ),
@@ -155,7 +160,7 @@ class _MainPlayerViewState extends State<MainPlayerView> {
                   value: 9,
                   height: 30,
                   child: Text(
-                    "Share",
+                    "Driver mode",
                     style: TextStyle(fontSize: 12),
                   ),
                 ),
